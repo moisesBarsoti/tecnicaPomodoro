@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.container .colorBg {
+    width: 40rem;
+    background-color: var(--color-verde-agua);
+    border-radius: 20px;
+}
+
+.container .colorBgWorking {
+    width: 40rem;
+    background-color: var(--color-red);
+    border-radius: 20px;
+}

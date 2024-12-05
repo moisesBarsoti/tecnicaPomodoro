@@ -1,0 +1,36 @@
+.pomodoro {
+    background-color: var(--color-white);
+    margin: 30px 50px;
+    padding: 20px 5rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+}
+
+.pomodoro .timer {
+    font-size: 6rem;
+}
+
+.pomodoro .controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.pomodoro button {
+    background-color: var(--color-verde-agua);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: .5rem 2rem;
+    color: var(--color-black);
+    margin: 20px auto;
+}
+
+.colorBgWorking .pomodoro button {
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+.pomodoro .details {
+    margin: 20px 0;
+    text-align: start;
+}

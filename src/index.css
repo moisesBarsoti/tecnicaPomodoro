@@ -8,3 +8,99 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+:root {
+    /* Cores global */
+    --bg-color: #272727;
+    --color-white: #fff;
+    --color-black: #000;
+
+    /* Cores Traballhando */
+    --color-verde-agua: #41e1ba;
+
+    /* Working */
+    --color-red: #ef5050;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.working {
+    background: var(--color-red);
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Responsividade */
+
+@media (max-width: 40rem) {
+    html {
+        font-size: 20%;
+    }
+
+    body {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .working {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 40rem) {
+    html {
+        font-size: 70%;
+    }
+
+    body {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .working {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+@media (min-width: 40rem) and (max-width: 60rem) {
+    html {
+        font-size: 80%;
+    }
+
+    body {
+        flex-direction: row;
+        padding: 2rem;
+    }
+
+    .working {
+        width: 50%;
+        padding: 2rem;
+    }
+}
+
+@media (min-width: 60rem) {
+    html {
+        font-size: 100%;
+    }
+
+    body {
+        flex-direction: row;
+        padding: 3rem;
+    }
+
+    .working {
+        width: 33%;
+        padding: 3rem;
+    }
+}
