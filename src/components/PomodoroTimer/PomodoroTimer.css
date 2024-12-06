@@ -15,7 +15,7 @@
     gap: 1rem;
 }
 
-.pomodoro button {
+ .pomodoro button {
     background-color: var(--color-verde-agua);
     border: none;
     border-radius: 10px;
@@ -23,11 +23,6 @@
     padding: .5rem 2rem;
     color: var(--color-black);
     margin: 20px auto;
-}
-
-.colorBgWorking .pomodoro button {
-    background-color: var(--color-red);
-    color: var(--color-white);
 }
 
 .pomodoro .details {
