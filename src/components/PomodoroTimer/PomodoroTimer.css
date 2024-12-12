@@ -4,28 +4,52 @@
     padding: 20px 5rem;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .4);
-}
-
-.pomodoro .timer {
+  }
+  
+  h2 {
+    background-color: var(--color-verde-agua);
+    border-radius: 10px;
+    transition: .5s;
+  }
+  
+  .pomodoro .timer {
     font-size: 6rem;
-}
-
-.pomodoro .controls {
+  }
+  
+  .pomodoro .controls {
     display: flex;
     gap: 1rem;
-}
-
- .pomodoro button {
-    background-color: var(--color-verde-agua);
+  }
+  
+  .pomodoro button {
+    background-color: var(--color-red);
     border: none;
     border-radius: 10px;
     cursor: pointer;
     padding: .5rem 2rem;
     color: var(--color-black);
     margin: 20px auto;
-}
+    transition: .5s;
+  }
 
-.pomodoro .details {
+  .pomodoro button:hover {
+    transform: scale(1.1);
+  }
+  
+  .pomodoro .details {
     margin: 20px 0;
     text-align: start;
-}
+  }
+  
+  .colorBgResting {
+    background-color: var(--color-red);
+  }
+  
+  .working-button {
+    background-color: var(--color-verde-agua) !important;
+  }
+  
+  .resting-button {
+    background-color: var(--color-red) !important;
+  }
+  

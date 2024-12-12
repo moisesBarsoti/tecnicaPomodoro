@@ -7,7 +7,7 @@ export const App = () => {
         <Pomodorotimer
           pomodoroTime={1500}
           shortRestTime={300}
-          longRestTime={900}
+          longRestTime={300}
           cycles={4}
         />
     </div>

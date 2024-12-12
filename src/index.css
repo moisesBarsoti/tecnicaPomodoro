@@ -11,7 +11,7 @@
 
 :root {
     /* Cores global */
-    --bg-color: #272727;
+    --bg-color: #03011b;
     --color-white: #fff;
     --color-black: #000;
 
@@ -20,6 +20,9 @@
 
     /* Working */
     --color-red: #ef5050;
+
+    /* Hover */
+    --transparente-hover: rgba(255, 255, 255, 0.5)
 }
 
 body {
