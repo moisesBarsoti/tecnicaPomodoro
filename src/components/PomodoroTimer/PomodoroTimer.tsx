@@ -18,10 +18,10 @@ export const Pomodorotimer = (props: Props): JSX.Element => {
   const [working, setWorking] = useState(false);
   const [resting, setResting] = useState(false);
   const [cycles, setCycles] = useState(new Array(props.cycles - 1).fill(true));
-
   const [completedCycles, setCompletedCycles] = useState(0);
   const [fullWorkingTime, setFullWorkingTime] = useState(0);
   const [numberOfPomodoros, setNumberOfPomodoros] = useState(0);
+  const [started, setStarted] = useState(false);
 
   useInterval(
     () => {
@@ -32,6 +32,7 @@ export const Pomodorotimer = (props: Props): JSX.Element => {
   );
 
   const startWork = () => {
+    setStarted(true);
     setTimeCounting(true);
     setWorking(true);
     setResting(false);
@@ -54,6 +55,7 @@ export const Pomodorotimer = (props: Props): JSX.Element => {
     setWorking(false);
     setResting(false);
     setFullWorkingTime(0);
+    setStarted(false);
   };
 
   useEffect(() => {
@@ -84,26 +86,45 @@ export const Pomodorotimer = (props: Props): JSX.Element => {
     props.cycles,
   ]);
 
+  useEffect(() => {
+    if (working) {
+      document.body.classList.add("colorBgWorking");
+      document.body.classList.remove("colorBgResting");
+    } else if (resting) {
+      document.body.classList.remove("colorBgWorking");
+      document.body.classList.add("colorBgResting");
+    }
+  }, [working, resting]);
+
   return (
     <div className="pomodoro">
-      <h2 className={working ? " colorBgWorking" : " colorBgResting"}>
+      <h2 className={working ? "colorBgWorking" : "colorBgResting"}>
         Você está: {working ? "Trabalhando" : "Descansando"}
       </h2>
       <Timer mainTime={mainTime} />
       <div className="controls">
-        <Button
-          text="Iniciar"
-          onClick={() => startWork()}
-          className={working ? "working-button" : "resting-button"}
-        ></Button>
+        {!started && (
+          <Button
+            text="Iniciar"
+            onClick={startWork}
+            className={working ? "working-button" : "resting-button"}
+          ></Button>
+        )}
+        {started && (
+          <Button
+            text={timeCounting ? "Pausar" : "Iniciar"}
+            onClick={toggleCounting}
+            className={working ? "working-button" : "resting-button"}
+          ></Button>
+        )}
         <Button
           text="Reiniciar"
-          onClick={() => resetTimer()}
+          onClick={resetTimer}
           className={working ? "working-button" : "resting-button"}
         ></Button>
         <Button
-          text={timeCounting ? "Pausar" : "Iniciar"}
-          onClick={() => toggleCounting()}
+          text="Voltar"
+          onClick={() => alert("Em construção")}
           className={working ? "working-button" : "resting-button"}
         ></Button>
       </div>
