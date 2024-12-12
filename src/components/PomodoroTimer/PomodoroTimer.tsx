@@ -31,13 +31,15 @@ export const Pomodorotimer = (props: Props): JSX.Element => {
     timeCounting ? 1000 : null
   );
 
-  const configureWork = () => {
+  const startWork = () => {
+    setTimeCounting(true);
+    setWorking(true);
+    setResting(false);
+    setMainTime(props.pomodoroTime);
+  };
+
+  const toggleCounting = () => {
     setTimeCounting(!timeCounting);
-    if (!timeCounting) {
-      setWorking(true);
-      setResting(false);
-      setMainTime(props.pomodoroTime);
-    }
   };
 
   const configureResting = (long: boolean) => {
@@ -65,7 +67,7 @@ export const Pomodorotimer = (props: Props): JSX.Element => {
       setCycles(new Array(props.cycles - 1).fill(true));
       setCompletedCycles(completedCycles + 1);
     } else if (resting) {
-      configureWork();
+      startWork();
     }
 
     if (working) setNumberOfPomodoros(numberOfPomodoros + 1);
@@ -78,7 +80,7 @@ export const Pomodorotimer = (props: Props): JSX.Element => {
     completedCycles,
     cycles,
     setCycles,
-    configureWork,
+    startWork,
     props.cycles,
   ]);
 
@@ -90,8 +92,8 @@ export const Pomodorotimer = (props: Props): JSX.Element => {
       <Timer mainTime={mainTime} />
       <div className="controls">
         <Button
-          text={timeCounting ? "Pausar" : "Iniciar"}
-          onClick={() => configureWork()}
+          text="Iniciar"
+          onClick={() => startWork()}
           className={working ? "working-button" : "resting-button"}
         ></Button>
         <Button
@@ -100,9 +102,9 @@ export const Pomodorotimer = (props: Props): JSX.Element => {
           className={working ? "working-button" : "resting-button"}
         ></Button>
         <Button
-          text="Voltar"
+          text={timeCounting ? "Pausar" : "Iniciar"}
+          onClick={() => toggleCounting()}
           className={working ? "working-button" : "resting-button"}
-          onClick={() => alert("Em construção")}
         ></Button>
       </div>
       <div className="details">
