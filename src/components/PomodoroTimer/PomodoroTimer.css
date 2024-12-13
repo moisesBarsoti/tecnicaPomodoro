@@ -1,5 +1,6 @@
 .pomodoro {
     background-color: var(--color-white);
+    color: var(--color-black);
     margin: 30px 50px;
     padding: 20px 5rem;
     border-radius: 20px;
